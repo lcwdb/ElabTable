@@ -1,0 +1,41 @@
+# 应用身份沿用工程约定，正式发布后不要随意更换。
+appId: io.github.lcwdb.elabtable
+productName: ElabTable
+
+# 从 desktop 包位置解析；复用本机已验证的版本与 arm64 运行时。
+electronDist: node_modules/electron/dist
+
+# 与 desktop 的 Electron 依赖保持一致。
+electronVersion: 45.0.0
+
+directories:
+  # 相对 apps/desktop，避免与源码编译目录混在一起。
+  output: release
+
+# 精确收集编译结果，不把整个仓库、教程或原始参考资料复制进去。
+files:
+  - dist/**/*
+  - package.json
+
+# ASAR 是应用文件归档，不是加密或源码保密机制。
+asar: true
+
+# 当前业务依赖不含原生扩展；后续接 SQLite 时重新配置并验收。
+npmRebuild: false
+
+# 由 builder 替换这些占位符，不是 Shell 环境变量。
+artifactName: '${productName}-${version}-${arch}.${ext}'
+
+mac:
+  category: public.app-category.developer-tools
+  target:
+    - target: dmg
+      arch:
+        - arm64
+    - target: zip
+      arch:
+        - arm64
+  # 本机开发验收采用临时签名，不选择你机器上的正式发布证书。
+  identity: '-'
+  # 此阶段未配置 Developer ID 与公证凭据，不请求 Apple 公证。
+  notarize: false

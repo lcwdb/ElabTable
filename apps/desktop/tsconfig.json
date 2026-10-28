@@ -1,0 +1,22 @@
+{
+  // 继承仓库根目录的基础编译配置（target/module/strict 等统一基线）
+  // 路径相对本文件：从 apps/desktop 上两级到根目录
+  "extends": "../../tsconfig.base.json",
+
+  "compilerOptions": {
+    // 本文件可用的内置库类型：
+    // ES2022 —— 语言标准库（Promise、Array 等）
+    // DOM —— 浏览器环境 API（document、window 等）
+    // DOM.Iterable —— DOM 集合的可迭代类型（如 NodeList 可 for...of）
+    // 渲染进程跑在浏览器/网页环境，所以需要 DOM 而不需要 Node 的类型
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // Vite 资源导入和 import.meta.env 的类型支持。
+    "types": ["vite/client"]
+  },
+
+  // 只把这个 tsconfig 作用范围限定在渲染进程源码：
+  // 从本文件所在目录出发，匹配 src/renderer 下所有 .ts、.vue 文件
+  // 主进程/预加载脚本等其他部分的 tsconfig 由各自配置负责
+  "include": ["src/renderer/**/*.ts", "src/renderer/**/*.vue"]
+}

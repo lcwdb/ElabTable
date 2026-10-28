@@ -1,0 +1,9 @@
+{
+  // 工具代码与浏览器界面分别检查，避免环境类型混用。
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    "types": []
+  },
+  "include": ["vite.config.ts"]
+}

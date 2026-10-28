@@ -1,0 +1,42 @@
+{
+  "name": "elabtable",
+  "version": "0.1.0",
+  "private": true,
+  "description": "lcwdb的AI Agent工作台",
+  "type": "module",
+  "packageManager": "pnpm@11.22.0",
+  "scripts": {
+    "dev": "pnpm --filter @elabtable/desktop dev",
+    "dev:renderer": "pnpm --filter @elabtable/desktop dev:renderer",
+    "build:renderer": "pnpm --filter @elabtable/desktop build:renderer",
+    "preview:renderer": "pnpm --filter @elabtable/desktop preview:renderer",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "pnpm typecheck && pnpm lint && pnpm format:check",
+    "build:electron": "pnpm --filter @elabtable/desktop build:electron",
+    "start:electron:dev": "pnpm --filter @elabtable/desktop start:electron:dev",
+    "start:electron:local": "pnpm --filter @elabtable/desktop start:electron:local",
+    "build:desktop": "pnpm --filter @elabtable/desktop build",
+    "build": "pnpm build:desktop",
+    "pack:mac": "pnpm --filter @elabtable/desktop pack:mac",
+    "dist:mac": "pnpm --filter @elabtable/desktop dist:mac"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.13.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-vue": "10.11.1",
+    "globals": "17.13.0",
+    "prettier": "3.9.10",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.0",
+    "vue-eslint-parser": "10.4.1"
+  },
+  "engines": {
+    "node": ">=24.19.0 <25",
+    "pnpm": "11.22.0"
+  }
+}

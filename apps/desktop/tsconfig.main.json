@@ -1,0 +1,10 @@
+{
+  // 继承 strict 与 noEmit；源码由 esbuild 构建，不由 tsc 输出。
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["ES2022"],
+    // main 可使用 Node API，与 renderer 的浏览器环境分开。
+    "types": ["node"]
+  },
+  "include": ["src/main/**/*.ts"]
+}

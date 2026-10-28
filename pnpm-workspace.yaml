@@ -1,0 +1,18 @@
+# 仅修正打包器依赖，保留 Electron 自身的下载工具版本。
+overrides:
+  'app-builder-lib@26.18.0>@electron/get': 3.1.0
+
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+allowBuilds:
+  # 当前只制作 Mac 包，不执行 Windows 安装工具脚本。
+  electron-winstaller: false
+  # 保留此前批准的构建工具。
+  esbuild: true
+
+engineStrict: true
+
+minimumReleaseAgeExclude:
+  - vite@8.3.5

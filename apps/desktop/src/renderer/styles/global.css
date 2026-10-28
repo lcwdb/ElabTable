@@ -1,0 +1,33 @@
+/* 框架验证用主题变量，正式视觉阶段统一设计。 */
+:root {
+  font-family: system-ui, sans-serif;
+  --page-bg: #f5f5f5;
+  --text-color: #222;
+  --space-page: 32px;
+  --space-compact: 16px;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--text-color);
+}
+
+main {
+  padding: var(--space-page);
+}
+
+/* 根组件根据 Store 状态添加 compact 类。 */
+main.compact {
+  padding: var(--space-compact);
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+button {
+  font: inherit;
+}

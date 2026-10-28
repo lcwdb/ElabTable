@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    // 编译产物的目标 ECMAScript 版本，ES2022 含顶层 await、类字段等
+    "target": "ES2022",
+
+    // 生成最新标准的 ES Module（import/export），不降级为 CommonJS
+    "module": "ESNext",
+
+    // 模块解析策略。Bundler 面向由打包器处理的项目（Vite/esbuild 等）：
+    // 允许省略扩展名、支持 package.json 的 exports 字段等
+    "moduleResolution": "Bundler",
+
+    // 打开 TypeScript 全部严格检查（严格空值、严格函数类型、严格属性初始化等）
+    "strict": true,
+
+    // 只做类型检查，不输出 JS 文件。实际打包交给 Vite/esbuild 等工具
+    "noEmit": true,
+
+    // 要求每个文件可被单独转译（打包器逐文件转译、不做全局类型分析）
+    // 禁止仅用于类型的 re-export 不加 type 关键字等
+    "isolatedModules": true,
+
+    // 强制类型的导入/导出必须显式标注 type，
+    // 保证转译时能准确删掉类型导入，运行时行为与源码意图一致
+    "verbatimModuleSyntax": true,
+
+    // 跳过对 node_modules 里 .d.ts（第三方类型声明）的检查，
+    // 显著加快类型检查速度，代价是不校验第三方库自身类型声明的问题
+    "skipLibCheck": true,
+
+    // 强制文件名大小写一致。macOS/Windows 默认不区分大小写，Linux 区分；
+    // 开启可防止"本地能跑、CI（Linux）报找不到文件"
+    "forceConsistentCasingInFileNames": true
+  }
+}

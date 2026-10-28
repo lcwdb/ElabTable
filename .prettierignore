@@ -1,0 +1,9 @@
+node_modules/
+dist/
+out/
+release/
+coverage/
+pnpm-lock.yaml
+LICENSE
+整体方案.md
+规划任务.md

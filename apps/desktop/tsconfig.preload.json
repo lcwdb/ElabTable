@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    // preload 位于页面上下文，也可能需要 DOM 类型。
+    "lib": ["ES2022", "DOM"],
+    "types": []
+  },
+  "include": ["src/preload/**/*.ts"]
+}

@@ -1,0 +1,8 @@
+{
+  // 保存排版仍由 Prettier 负责。
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.requireConfig": true,
+  // ESLint 负责代码问题，不替换格式化程序。
+  "eslint.validate": ["javascript", "typescript", "vue"]
+}
